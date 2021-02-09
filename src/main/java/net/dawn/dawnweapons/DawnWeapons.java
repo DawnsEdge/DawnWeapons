@@ -1,5 +1,6 @@
 package net.dawn.dawnweapons;
 
+import net.dawn.dawnweapons.registry.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -11,12 +12,15 @@ import org.apache.logging.log4j.Logger;
 public class DawnWeapons implements ModInitializer {
 
 	public static final String MOD_ID = "dawnweapons";
+	public static final String NAME = "DawnWeapons";
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	@Override
 	public void onInitialize()
 	{
 		LOGGER.info("[DawnWeapons] is loading.");
+		ItemRegistry.init();
+		LOGGER.info("[DawnWeapons] is instantiated.");
 	}
 
 	/*public static String createItemModelJson(String id, String type)

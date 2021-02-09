@@ -8,11 +8,10 @@ import net.minecraft.client.util.ModelIdentifier;
 import org.jetbrains.annotations.Nullable;
 
 public class ItemModelProvider implements ModelVariantProvider {
-
     @Override
     public @Nullable UnbakedModel loadModelVariant(ModelIdentifier modelIdentifier, ModelProviderContext modelProviderContext) throws ModelProviderException {
-        if (modelIdentifier.getNamespace().equals(DawnWeapons.MOD_ID)) {
-            return new ItemBakedModel(modelIdentifier);
+        if(modelIdentifier.getNamespace().equals(DawnWeapons.MOD_ID) && Utils.isGeneratedWeapon(modelIdentifier.getPath())) {
+            return new ItemBakedModel();
         }
         return null;
     }
